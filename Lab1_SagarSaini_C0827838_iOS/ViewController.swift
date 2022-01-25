@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  
+
     var activeplayer=1
     var gameisActive=true
     var gameState=[0,0,0,0,0,0,0,0,0]
@@ -54,6 +59,7 @@ class ViewController: UIViewController {
                         won=1
                     }
                     scorex.text=String(x)
+                    savedata(sc: x, key: "x")
                     
                 }
                 else
@@ -67,6 +73,8 @@ class ViewController: UIViewController {
                     }
                 
                     scoreO.text=String(y)
+                    savedata(sc: y, key: "y")
+                    
                 
                 }
                 newgameOut.isHidden=false
@@ -76,7 +84,7 @@ class ViewController: UIViewController {
             
             
         }
-            
+           fetchdata(context)
              
         if gameState[0] != 0 && gameState[1] != 0 && gameState[2] != 0 && gameState[3] != 0 && gameState[4] != 0 && gameState[5] != 0 && gameState[6] != 0 && gameState[7] != 0 && gameState[8] != 0 && won == 0
         {
@@ -93,6 +101,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         // Do any additional setup after loading the view.
         newgameOut.isHidden=true
         wonmsg.isHidden=true
@@ -103,6 +112,7 @@ class ViewController: UIViewController {
         let swipeup=UISwipeGestureRecognizer(target: self, action: #selector(swiped))
         swipeup.direction = .up
         view.addGestureRecognizer(swipeup)
+        fetchdata(context)
         
         
     }
@@ -246,6 +256,53 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    //:MARK: Core Data Functions
+    
+    func savedata(sc:Int , key:String)
+    {
+        let newscore=NSEntityDescription.insertNewObject(forEntityName: "Entity", into: self.context)
+        newscore.setValue(sc, forKey: key)
+        appdelegate.saveContext()
+    }
+    
+    func fetchdata(_ context: NSManagedObjectContext)
+    {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        do{
+            var xscore:Int
+            var yscore:Int
+            let result = try context.fetch(request)
+            if result.count > 0
+            {
+                for res in result as! [NSManagedObject]
+                {
+                    if let x=res.value(forKey: "x")
+                    {
+                        xscore=x as! Int
+                        print(xscore)
+                    }
+                    if let y=res.value(forKey: "y")
+                    {
+                        yscore=y as! Int
+                        print(yscore)
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }catch{
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
 }
 
 
