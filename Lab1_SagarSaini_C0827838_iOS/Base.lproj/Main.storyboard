@@ -176,6 +176,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="b1" destination="q9S-d1-BOQ" id="1vg-HW-gbu"/>
+                        <outlet property="b2" destination="hFl-ct-ALC" id="UQe-fo-azL"/>
+                        <outlet property="b3" destination="db7-hI-BNE" id="mQD-IY-Rri"/>
+                        <outlet property="b4" destination="1oo-96-JbL" id="Aml-Gm-FxB"/>
+                        <outlet property="b5" destination="y8r-zl-OMG" id="xmo-ro-cE9"/>
+                        <outlet property="b6" destination="KT0-Io-5cq" id="X8q-Lw-p70"/>
+                        <outlet property="b7" destination="y2T-t4-X3G" id="vVJ-JA-hN6"/>
+                        <outlet property="b8" destination="Ler-My-mgf" id="jOd-79-L3r"/>
+                        <outlet property="b9" destination="tTT-ea-NRs" id="dEX-GX-tTB"/>
                         <outlet property="newgameOut" destination="k4c-WO-MSp" id="LfJ-px-YxF"/>
                         <outlet property="resetout" destination="Nyw-1T-K6h" id="kEJ-kg-frz"/>
                         <outlet property="scoreO" destination="ZeC-kk-dxy" id="VeD-u7-Ce2"/>

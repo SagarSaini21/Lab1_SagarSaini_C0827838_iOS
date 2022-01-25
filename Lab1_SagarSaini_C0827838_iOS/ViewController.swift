@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var y=0
     var temp=0
     var won=0
+    var lastsender=0
+    var shake = 0
     @IBOutlet weak var scorex: UILabel!
     @IBOutlet weak var scoreO: UILabel!
     
@@ -24,13 +26,16 @@ class ViewController: UIViewController {
     @IBAction func Ontap(_ sender: UIButton) {
         if (gameState[sender.tag-1]==0 && gameisActive==true)
         {
+            lastsender=sender.tag
             gameState[sender.tag-1]=activeplayer
             if(activeplayer==1){
                 sender.setImage(UIImage(named: "cross.png"), for: UIControl.State.normal)
                 activeplayer=2
+                shake=0
             }else{
                 sender.setImage(UIImage(named: "nought.png"), for: UIControl.State.normal)
                 activeplayer=1
+                shake=0
             }
             
         }
@@ -72,23 +77,7 @@ class ViewController: UIViewController {
             
         }
             
-           /*      gameisActive=false
-                    for i in gameState
-                    {
-                        if i==0
-                        {
-                            gameisActive=true
-                            break
-                        }
-                    }
-                    if gameisActive==false
-                    {
-                        wonmsg.text="Game DRAW"
-                        gameisActive=false
-                        newgameOut.isHidden=false
-                        wonmsg.isHidden=false
-                    }
-             */
+             
         if gameState[0] != 0 && gameState[1] != 0 && gameState[2] != 0 && gameState[3] != 0 && gameState[4] != 0 && gameState[5] != 0 && gameState[6] != 0 && gameState[7] != 0 && gameState[8] != 0 && won == 0
         {
             wonmsg.text="Game DRAW"
@@ -100,6 +89,7 @@ class ViewController: UIViewController {
         
     }
     
+    //:MARK: Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +98,8 @@ class ViewController: UIViewController {
         wonmsg.isHidden=true
         scorex.text="0"
         scoreO.text="0"
-        
+        shake=0
+        won = 0
         let swipeup=UISwipeGestureRecognizer(target: self, action: #selector(swiped))
         swipeup.direction = .up
         view.addGestureRecognizer(swipeup)
@@ -124,6 +115,7 @@ class ViewController: UIViewController {
             scorex.text=String("0")
             x=0
             y=0
+            won=0
             scoreO.text=String("0")
                 gameState=[0,0,0,0,0,0,0,0,0]
                 gameisActive=true
@@ -131,6 +123,7 @@ class ViewController: UIViewController {
                 newgameOut.isHidden=true
                 wonmsg.isHidden=true
                 temp=0
+                shake=0
                 for i in 1...9
                 {
                     let button=view.viewWithTag(i) as! UIButton
@@ -153,12 +146,105 @@ class ViewController: UIViewController {
         newgameOut.isHidden=true
         wonmsg.isHidden=true
         temp=0
+        won=0
+        shake=0
         for i in 1...9
         {
             let button=view.viewWithTag(i) as! UIButton
             button.setImage(nil, for:.normal)
         }
         
+    }
+    
+    @IBOutlet weak var b1: UIButton!
+    
+    @IBOutlet weak var b9: UIButton!
+    @IBOutlet weak var b8: UIButton!
+    @IBOutlet weak var b7: UIButton!
+    @IBOutlet weak var b6: UIButton!
+    @IBOutlet weak var b5: UIButton!
+    @IBOutlet weak var b4: UIButton!
+    @IBOutlet weak var b3: UIButton!
+    @IBOutlet weak var b2: UIButton!
+    override var canBecomeFirstResponder: Bool{return true}
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        }
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake && shake==0 && won==0
+        {
+            print(lastsender)
+            switch lastsender
+            {
+            case 1:
+                print("1")
+                b1.setImage(nil, for:.normal)
+                gameState[lastsender-1]=0
+                if activeplayer==2{activeplayer=1}else{activeplayer=2}
+                shake=1
+                
+    
+     
+          case 2:
+        print("2")
+        b2.setImage(nil, for:.normal)
+        gameState[lastsender-1]=0
+        if activeplayer==2{activeplayer=1}else{activeplayer=2}
+        shake=1
+                
+          case 3:
+          print("3")
+          b3.setImage(nil, for:.normal)
+      gameState[lastsender-1]=0
+      if activeplayer==2{activeplayer=1}else{activeplayer=2}
+      shake=1
+      
+      case 4:
+      print("4")
+      b4.setImage(nil, for:.normal)
+      gameState[lastsender-1]=0
+      if activeplayer==2{activeplayer=1}else{activeplayer=2}
+      shake=1
+      
+      case 5:
+      print("5")
+      b5.setImage(nil, for:.normal)
+      gameState[lastsender-1]=0
+      if activeplayer==2{activeplayer=1}else{activeplayer=2}
+      shake=1
+      
+      case 6:
+      print("6")
+      b6.setImage(nil, for:.normal)
+      gameState[lastsender-1]=0
+      if activeplayer==2{activeplayer=1}else{activeplayer=2}
+      shake=1
+      
+      case 7:
+      print("7")
+      b7.setImage(nil, for:.normal)
+      gameState[lastsender-1]=0
+      if activeplayer==2{activeplayer=1}else{activeplayer=2}
+      shake=1
+      
+      case 8:
+      print("8")
+      b8.setImage(nil, for:.normal)
+      gameState[lastsender-1]=0
+      if activeplayer==2{activeplayer=1}else{activeplayer=2}
+      shake=1
+      
+      case 9:
+                print("9")
+                b9.setImage(nil, for:.normal)
+                gameState[lastsender-1]=0
+                if activeplayer==2{activeplayer=1}else{activeplayer=2}
+                shake=1
+            default:
+                break
+            
+            }
+            
+        }
     }
 }
 

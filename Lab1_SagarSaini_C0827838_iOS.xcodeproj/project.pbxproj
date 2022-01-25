@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B9D7EA3279F7BF500477980 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D7EA1279F7BF500477980 /* Model.xcdatamodeld */; };
+		0B9D7EA4279F7BF500477980 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D7EA1279F7BF500477980 /* Model.xcdatamodeld */; };
+		0B9D7EA5279F7BF500477980 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D7EA1279F7BF500477980 /* Model.xcdatamodeld */; };
 		43AA560D27962EDA0041831C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA560C27962EDA0041831C /* AppDelegate.swift */; };
 		43AA560F27962EDA0041831C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA560E27962EDA0041831C /* SceneDelegate.swift */; };
 		43AA561127962EDA0041831C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA561027962EDA0041831C /* ViewController.swift */; };
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B9D7EA2279F7BF500477980 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		43AA560927962EDA0041831C /* Lab1_SagarSaini_C0827838_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab1_SagarSaini_C0827838_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43AA560C27962EDA0041831C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43AA560E27962EDA0041831C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,12 +104,13 @@
 			isa = PBXGroup;
 			children = (
 				43AA560C27962EDA0041831C /* AppDelegate.swift */,
-				43AA560E27962EDA0041831C /* SceneDelegate.swift */,
 				43AA561027962EDA0041831C /* ViewController.swift */,
 				43AA561227962EDA0041831C /* Main.storyboard */,
 				43AA561527962EDB0041831C /* Assets.xcassets */,
 				43AA561727962EDB0041831C /* LaunchScreen.storyboard */,
 				43AA561A27962EDB0041831C /* Info.plist */,
+				43AA560E27962EDA0041831C /* SceneDelegate.swift */,
+				0B9D7EA1279F7BF500477980 /* Model.xcdatamodeld */,
 			);
 			path = Lab1_SagarSaini_C0827838_iOS;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				43AA561127962EDA0041831C /* ViewController.swift in Sources */,
 				43AA560D27962EDA0041831C /* AppDelegate.swift in Sources */,
 				43AA560F27962EDA0041831C /* SceneDelegate.swift in Sources */,
+				0B9D7EA3279F7BF500477980 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43AA562427962EDC0041831C /* Lab1_SagarSaini_C0827838_iOSTests.swift in Sources */,
+				0B9D7EA4279F7BF500477980 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +288,7 @@
 			files = (
 				43AA562E27962EDC0041831C /* Lab1_SagarSaini_C0827838_iOSUITests.swift in Sources */,
 				43AA563027962EDC0041831C /* Lab1_SagarSaini_C0827838_iOSUITestsLaunchTests.swift in Sources */,
+				0B9D7EA5279F7BF500477980 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +609,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0B9D7EA1279F7BF500477980 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B9D7EA2279F7BF500477980 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0B9D7EA2279F7BF500477980 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 43AA560127962ED90041831C /* Project object */;
 }
